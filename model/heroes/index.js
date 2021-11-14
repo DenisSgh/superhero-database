@@ -1,5 +1,5 @@
 const listHeroes = require('./listHeroes')
-const getHeroById = require('./removeHero')
+const getHeroById = require('./getHeroById')
 const addHero = require('./addHero')
 const updateHero = require('./updateHero')
 const removeHero = require('./removeHero')

@@ -4,16 +4,13 @@ const { getHeroById } = require('../../model/heroes')
 const getById = async (req, res) => {
   const { id } = req.params
 
-  const heroes = await getHeroById(id)
+  const hero = await getHeroById(id)
 
-  if (!heroes) {
+  if (!hero) {
     throw new NotFound('Not found')
   }
 
-  res.status(200).json({
-    message: 'Your hero find',
-    heroes,
-  })
+  res.status(200).json(hero)
 }
 
 module.exports = getById
