@@ -4,9 +4,9 @@ const { getHeroById } = require('../../model/heroes')
 const getById = async (req, res) => {
   const { id } = req.params
 
-  const contact = await getContactById(id)
+  const heroes = await getHeroById(id)
 
-  if (!contact) {
+  if (!heroes) {
     throw new NotFound('Not found')
   }
 
