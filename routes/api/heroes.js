@@ -9,10 +9,7 @@ const {
   removeHeroById,
 } = require('../../controllers/heroes')
 const { controllerWrapper, avatarsMiddleware } = require('../../middlewares')
-const {
-  heroesValidation,
-  heroUpdateValidation,
-} = require('../../middlewares/validation')
+const { heroesValidation } = require('../../middlewares/validation')
 
 router.get('/', controllerWrapper(getAllHeroes))
 
@@ -25,7 +22,7 @@ router.post(
   controllerWrapper(addHero),
 )
 
-router.put('/:id', heroUpdateValidation(), controllerWrapper(updateHeroById))
+router.put('/:id', controllerWrapper(updateHeroById))
 
 router.delete('/:id', controllerWrapper(removeHeroById))
 
