@@ -4,6 +4,7 @@ const Superhero = require('../../model')
 const add = async (req, res) => {
   const body = req.body
   const files = req.files
+  console.log(body)
 
   if (files.length !== 0) {
     try {
@@ -14,9 +15,9 @@ const add = async (req, res) => {
         return result.secure_url
       }
 
-      const uploadToCloudinary = async arr => {
+      const uploadToCloudinary = arr => {
         const promises = arr.map(el => cloudinaryImg(el.originalname))
-        return await Promise.all(promises)
+        return Promise.all(promises)
       }
 
       body.images = await uploadToCloudinary(files)
