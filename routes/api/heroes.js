@@ -2,11 +2,11 @@ const express = require('express')
 
 const router = express.Router()
 const {
-  getAll,
-  getById,
-  add,
-  updateById,
-  removeById,
+  getAllHeroes,
+  getHeroById,
+  addHero,
+  updateHeroById,
+  removeHeroById,
 } = require('../../controllers/heroes')
 const { controllerWrapper, avatarsMiddleware } = require('../../middlewares')
 const {
@@ -14,19 +14,19 @@ const {
   heroUpdateValidation,
 } = require('../../middlewares/validation')
 
-router.get('/', controllerWrapper(getAll))
+router.get('/', controllerWrapper(getAllHeroes))
 
-router.get('/:id', controllerWrapper(getById))
+router.get('/:id', controllerWrapper(getHeroById))
 
 router.post(
   '/',
   heroesValidation(),
   avatarsMiddleware.array('images'),
-  controllerWrapper(add),
+  controllerWrapper(addHero),
 )
 
-router.put('/:id', heroUpdateValidation(), controllerWrapper(updateById))
+router.put('/:id', heroUpdateValidation(), controllerWrapper(updateHeroById))
 
-router.delete('/:id', controllerWrapper(removeById))
+router.delete('/:id', controllerWrapper(removeHeroById))
 
 module.exports = router

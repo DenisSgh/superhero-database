@@ -1,13 +1,13 @@
-const getAll = require('./getAll')
-const getById = require('./getById')
-const add = require('./add')
-const updateById = require('./updateById')
-const removeById = require('./removeById')
+const getAllHeroes = require('./getAllHeroes')
+const getHeroById = require('./getHeroById')
+const addHero = require('./addHero')
+const updateHeroById = require('./updateHeroById')
+const removeHeroById = require('./removeHeroById')
 
 module.exports = {
-  getAll,
-  getById,
-  add,
-  updateById,
-  removeById,
+  getAllHeroes,
+  getHeroById,
+  addHero,
+  updateHeroById,
+  removeHeroById,
 }

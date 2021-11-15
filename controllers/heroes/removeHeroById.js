@@ -1,9 +1,9 @@
 const { NotFound } = require('http-errors')
-const { removeHero } = require('../../model/heroes')
+const Superhero = require('../../model')
 
 const removeById = async (req, res) => {
   const { id } = req.params
-  const hero = await removeHero(id)
+  const hero = await Superhero.findByIdAndRemove(id)
 
   if (!hero) {
     throw new NotFound('Not found')

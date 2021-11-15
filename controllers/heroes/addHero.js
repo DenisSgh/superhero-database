@@ -1,5 +1,5 @@
-const { addHero } = require('../../model/heroes')
 const cloudinary = require('cloudinary').v2
+const Superhero = require('../../model')
 
 const add = async (req, res) => {
   const body = req.body
@@ -25,7 +25,7 @@ const add = async (req, res) => {
     }
   }
 
-  const hero = await addHero(body)
+  const hero = await Superhero.create(body)
 
   res.status(201).json({
     message: 'Hero created',

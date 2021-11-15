@@ -1,11 +1,11 @@
 const { NotFound } = require('http-errors')
-const { updateHero } = require('../../model/heroes')
+const Superhero = require('../../model')
 
 const updateById = async (req, res) => {
   const { id } = req.params
   const body = req.body
 
-  const hero = await updateHero(id, body)
+  const hero = await Superhero.findByIdAndUpdate(id, body, { new: true })
 
   if (!hero) {
     throw new NotFound('Not found')
